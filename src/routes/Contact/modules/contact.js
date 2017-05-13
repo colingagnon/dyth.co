@@ -1,54 +1,91 @@
+import api from './../../../api'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
+export const CONTACT_CHANGE = 'CONTACT_CHANGE'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment (value = 1) {
+export function contactChange (params) {
   return {
-    type    : COUNTER_INCREMENT,
-    payload : value
+    type    : CONTACT_CHANGE,
+    payload : params
   }
 }
 
-/*  This is a thunk, meaning it is a function that immediately
-    returns a function for lazy evaluation. It is incredibly useful for
-    creating async actions, especially when combined with redux-thunk! */
-
-export const doubleAsync = () => {
+export const requestService = (event) => {
   return (dispatch, getState) => {
+    event.preventDefault()
+
+    dispatch(contactChange({ loading: true }))
     return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type    : COUNTER_DOUBLE_ASYNC,
-          payload : getState().counter
-        })
-        resolve()
-      }, 200)
+      api.RequestService(event.target,
+        () => {
+          let message = 'Thank you for your interest, we will be in touch shortly!'
+          dispatch(contactChange({ loading: false, success: message, data: {} }))
+          resolve()
+        },
+
+        () => {
+          let error = 'Sorry, there was an error processing your request.'
+          dispatch(contactChange({ loading: false, error: error }))
+          resolve()
+        }
+      )
     })
   }
 }
 
+export const formChange = (event) => {
+  return (dispatch, getState) => {
+    let data = getState().contact.data
+
+    if (event.target.type === 'checkbox') {
+      data[event.target.name] = !data[event.target.name]
+    } else {
+      data[event.target.name] = event.target.value
+    }
+
+    dispatch(contactChange({ data: data }))
+  }
+}
+
 export const actions = {
-  increment,
-  doubleAsync
+  requestService,
+  formChange
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2
+  [CONTACT_CHANGE] : (state, action) => Object.assign({}, state, action.payload)
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = {
+  loading: false,
+  success: '',
+  error: '',
+  data: {
+    email: '',
+    name: '',
+    company_name: '',
+    description: '',
+    training: false,
+    recruiting: false,
+    assessments: false,
+    architecture: false,
+    optimization: false,
+    automation: false,
+    prototyping: false
+  }
+}
+
 export default function counterReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

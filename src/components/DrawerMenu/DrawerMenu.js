@@ -32,7 +32,8 @@ export const DrawerMenu = (props) => (
     {!props.drawerMaximized
       ? <DrawerHeader>
         <DrawerHeaderContent>
-          Dythco Consulting
+          <i className='material-icons dythco-drawer__icon-header'>memory</i>
+          <span className='dythco-mdc--drawer--header'>Dythco Consulting</span>
         </DrawerHeaderContent>
       </DrawerHeader>
       : null
@@ -41,34 +42,47 @@ export const DrawerMenu = (props) => (
     <DrawerContent>
 
       <Navigation>
-        <IndexLink to='/' activeClassName='mdc-temporary-drawer--selected'><Icon name='home' />Home</IndexLink>
-        <Link to='/contact' activeClassName='mdc-temporary-drawer--selected'><Icon name='email' />Contact</Link>
+        <IndexLink to='/' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='home' />Home
+        </IndexLink>
+        <Link to='/contact' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='email' />Contact
+        </Link>
+        <Link to='/background' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='work' />Background
+        </Link>
       </Navigation>
       {/*
       <DrawerSpacer>
         Services
       </DrawerSpacer>
-      <hr className='dythco-menu--spacer' />
       */}
-
-      <Navigation>
-        <Link to='/services/lunchandlearn' activeClassName='mdc-temporary-drawer--selected'>
-          <Icon name='email' />Lunch and Learn as a Service
+      <Navigation className='dythco-drawer__spacer'>
+        <Link to='/training' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='school' />Training and Mentorship
         </Link>
-        <Link to='/services/mentorship' activeClassName='mdc-temporary-drawer--selected'>
-          <Icon name='email' />Mentorship and Training
+        <Link to='/placements' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='people_outline' />Developer Placements
         </Link>
-        <Link to='/services/assessments' activeClassName='mdc-temporary-drawer--selected'>
-          <Icon name='email' />Technology Assessments
+        <Link to='/assessments' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='assessment' />Technology Assessments
         </Link>
-        <Link to='/services/architecture' activeClassName='mdc-temporary-drawer--selected'>
-          <Icon name='email' />Architecture Design
+        <Link to='/architecture' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='developer_board' />Architecture Consulting
         </Link>
-        <Link to='/services/prototyping' activeClassName='mdc-temporary-drawer--selected'>
-          <Icon name='email' />Prototyping
+        <Link to='/optimization' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='history' />Application Optimization
         </Link>
-        <Link to='/services/optimization' activeClassName='mdc-temporary-drawer--selected'>
-          <Icon name='email' />Optimization
+        <Link to='/automation' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='widgets' />Process Automation
+        </Link>
+        <Link to='/prototyping' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='lightbulb_outline' />Prototyping
+        </Link>
+      </Navigation>
+      <Navigation className='dythco-nav--spacer dythco-drawer__bottom dythco-drawer__spacer'>
+        <Link to='/legals' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+          <Icon name='business' />Legals
         </Link>
       </Navigation>
     </DrawerContent>

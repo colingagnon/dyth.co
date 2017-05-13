@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Content, Caption } from 'react-mdc-web'
+import { Content } from 'react-mdc-web'
 import HeaderMenu from '../../components/HeaderMenu'
+import FooterMenu from '../../components/FooterMenu'
 import DrawerMenu from '../../components/DrawerMenu'
 import './CoreLayout.scss'
 import 'material-components-web/dist/material-components-web.min.css'
 import '../../styles/core.scss'
 
 export const CoreLayout = (props) => (
-  <div>
+  <div style={{ height: 'inherit' }}>
     <HeaderMenu
-      drawerOpen={props.global.drawerOpen}
       drawerMaximized={props.global.drawerMaximized}
       drawerToggle={props.drawerToggle}
       />
@@ -18,7 +18,8 @@ export const CoreLayout = (props) => (
       display: 'flex',
       boxSizing: 'border-box',
       flex: 1,
-      minHeight: '600px'
+      height: 'inherit',
+      //flexWrap: 'wrap'
     }}>
       <DrawerMenu
         drawerOpen={props.global.drawerOpen}
@@ -29,9 +30,7 @@ export const CoreLayout = (props) => (
         {props.children}
       </div>
     </Content>
-    <footer className='dythco-footer'>
-      <Caption>Copyright &copy; Dyth.co 2017</Caption>
-    </footer>
+    <FooterMenu />
   </div>
 )
 

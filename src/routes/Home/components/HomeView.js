@@ -56,6 +56,34 @@ export const HomeView = () => (
     <Body1>
       123123
     </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
+    <Title>Lively Conversations</Title>
+    <Body1>
+      123123
+    </Body1>
   </div>
 )
 

@@ -6,30 +6,29 @@ import './HeaderMenu.scss'
 // import LogoImage from './logo.png'
 // <img src={LogoImage} className='logo-image' />
 
-//<header class="mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall mdc-toolbar--flexible mdc-toolbar--flexible-default-behavior">
+// TODO waterfall doesn't work in deps yet, need to revisit
+// mdc-toolbar--waterfall mdc-toolbar--flexible mdc-toolbar--flexible-default-behavior
 export const HeaderMenu = (props) => (
-  <Toolbar fixed className='mdc-toolbar--waterfall mdc-toolbar--flexible mdc-toolbar--flexible-default-behavior'>
+  <Toolbar fixed className='dythco-header'>
     <ToolbarRow>
-      <ToolbarSection align='start'>
+      <ToolbarSection align='start' style={{ overflow: 'visible' }}>
         {!props.drawerMaximized
-          ? <ToolbarTitle>
-            <button className='pill-menu material-icons' onClick={props.drawerToggle}>menu</button>
+          ? <ToolbarTitle style={{ overflow: 'visible' }}>
+            <button className='dythco-header__pill-menu material-icons' onClick={props.drawerToggle}>menu</button>
           </ToolbarTitle>
           : null
         }
-        <ToolbarTitle>
-          <IndexLink to='/' className='button-text mdc-theme--text-primary-on-primary'>
-            Dythco
+        <ToolbarTitle style={{ overflow: 'visible' }}>
+          <IndexLink to='/' className='dythco-header__button mdc-theme--text-primary-on-primary'>
+            Dythco Consulting
           </IndexLink>
         </ToolbarTitle>
       </ToolbarSection>
-      <ToolbarSection align='end'>
-        {/*
-        <IndexLink to='/' className='mdc-button mdc-button--compact button-text mdc-theme--text-primary-on-primary'>
-            Home
-        </IndexLink>
-        */}
-        <Link to='/contact' className='mdc-button mdc-button--compact button-text mdc-theme--text-primary-on-primary'>
+      <ToolbarSection align='end' style={{ width:  '50px' }}>
+        <Link
+          to='/contact'
+          className='mdc-button mdc-button--compact dythco-header__button mdc-theme--text-primary-on-primary'
+        >
             Contact
         </Link>
       </ToolbarSection>
@@ -38,7 +37,6 @@ export const HeaderMenu = (props) => (
 )
 
 HeaderMenu.propTypes = {
-  drawerOpen: PropTypes.bool.isRequired,
   drawerMaximized: PropTypes.bool.isRequired,
   drawerToggle: PropTypes.func.isRequired
 }

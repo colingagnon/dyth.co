@@ -5,35 +5,9 @@ import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { drawerUpdate } from '../store/global'
 
-//import { MDCToolbar } from 'material-components-web'
+// TODO header waterfall
+// import * as mdc from '../../node_modules/material-components-web/dist/material-components-web'
 
-//console.log(MDCToolbar);
-
-//
-
-/*
-
-      (function() {
-        var pollId = 0;
-        pollId = setInterval(function() {
-          var pos = getComputedStyle(document.querySelector('.mdc-toolbar')).position;
-          if (pos === 'fixed' || pos === 'relative') {
-            init();
-            clearInterval(pollId);
-          }
-        }, 250);
-        function init() {
-          var ratioSpan = document.querySelector("#ratio");
-          var toolbar = mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'));
-          toolbar.listen('MDCToolbar:change', function(evt) {
-            var flexibleExpansionRatio = evt.detail.flexibleExpansionRatio;
-            ratioSpan.innerHTML = flexibleExpansionRatio.toFixed(2);
-          });
-          toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust');
-        }
-      })();
-
- */
 class AppContainer extends Component {
   static propTypes = {
     routes : PropTypes.object.isRequired,
@@ -45,16 +19,18 @@ class AppContainer extends Component {
   }
 
   componentDidMount () {
-    //let toolbar = document.mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'))
-    //toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust')
+    // TODO header waterfall
+    // mdc.autoInit()
+    // let header = mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'))
+    // header.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust')
 
     // TODO holy hell this is hacky and coupled
     try {
-      enquire.register('screen and (min-width:950px)', () => {
+      enquire.register('screen and (min-width:1000px)', () => {
         this.props.store.dispatch(drawerUpdate({ drawerOpen: true, drawerMaximized: true }))
       })
 
-      enquire.register('screen and (max-width:950px)', () => {
+      enquire.register('screen and (max-width:1000px)', () => {
         this.props.store.dispatch(drawerUpdate({ drawerOpen: false, drawerMaximized: false }))
       })
     } catch (err) {

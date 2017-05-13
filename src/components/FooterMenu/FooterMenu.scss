@@ -1,0 +1,22 @@
+.dythco-footer {
+  display: block;
+  padding: 0;
+  height: 30px;
+  color: var(--mdc-theme-primary);
+  background-color: var(--mdc-theme-accent);
+  position:relative;
+}
+
+.dythco-footer__caption {
+  position: absolute;
+  top: 5px;
+  left: 28px;
+}
+
+.dythco-footer__button {
+  position: absolute;
+  top: 5px;
+  right: 28px;
+  color: var(--mdc-theme-primary);
+  text-decoration: none;
+}
