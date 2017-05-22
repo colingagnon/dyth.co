@@ -1,7 +1,10 @@
 .core-layout__viewport {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 0;
   width:100%;
   display: flex;
   justify-content: center;
+}
+
+.dythco-content {
+  padding: 20px;
 }

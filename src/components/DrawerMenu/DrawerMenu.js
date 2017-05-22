@@ -33,16 +33,19 @@ export const DrawerMenu = (props) => (
       ? <DrawerHeader>
         <DrawerHeaderContent>
           <i className='material-icons dythco-drawer__icon-header'>memory</i>
-          <span className='dythco-mdc--drawer--header'>Dythco Consulting</span>
+          <span className='dythco-drawer__text-header'>Dythco Consulting</span>
         </DrawerHeaderContent>
       </DrawerHeader>
       : null
     }
 
     <DrawerContent>
-
       <Navigation>
-        <IndexLink to='/' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>
+        <IndexLink
+          to='/'
+          className='dythco-drawer__link'
+          activeClassName='mdc-temporary-drawer--selected'
+        >
           <Icon name='home' />Home
         </IndexLink>
         <Link to='/contact' className='dythco-drawer__link' activeClassName='mdc-temporary-drawer--selected'>

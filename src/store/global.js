@@ -61,5 +61,11 @@ const initialState = {
 export default function globalReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
+  // TODO decide where to put this longer term
+  // Automatically close menu on all location changes
+  if (action.type === 'LOCATION_CHANGE' && state.drawerOpen && !state.drawerMaximized) {
+    state.drawerOpen = false
+  }
+
   return handler ? handler(state, action) : state
 }

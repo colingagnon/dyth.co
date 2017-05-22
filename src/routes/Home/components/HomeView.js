@@ -8,7 +8,7 @@ import {
 import './HomeView.scss'
 
 export const HomeView = () => (
-  <div>
+  <div className='dythco-content'>
     <Title>Dythco Consulting</Title>
     <Body1>
       123123123
