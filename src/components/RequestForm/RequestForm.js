@@ -59,14 +59,14 @@ export const RequestForm = (props) => (
       <label>Training and Mentorship</label>
     </FormField>
 
-    <FormField id='request-form-services-training' className='dythco-request-form__field'>
+    <FormField id='request-form-services-placements' className='dythco-request-form__field'>
       <Checkbox
         name='placements'
         checked={props.data.placements}
         onChange={props.changeHandler}
         disabled={props.loading}
       />
-      <label>Training and Mentorship</label>
+      <label>Developer Placements</label>
     </FormField>
 
     <FormField id='request-form-services-assessments' className='dythco-request-form__field'>

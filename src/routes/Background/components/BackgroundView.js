@@ -57,7 +57,7 @@ import Nerd from './../assets/nerd.png'
  * 2015 - PSL Group Inc.
  * 2016 - Spotful
  * 2016 - CTO Discoder
- * 2017 - Lead Software Engineer
+ * 2017 - Lead Software Engineer at Research on Investment
  *
  * Basic idea:
  * Setup slides for history
